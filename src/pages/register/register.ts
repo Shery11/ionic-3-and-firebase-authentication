@@ -1,5 +1,5 @@
 import { Component ,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 
@@ -20,7 +20,7 @@ export class RegisterPage {
 	@ViewChild('username') uname;
 	@ViewChild('password') password;
 
-  constructor(private fire : AngularFireAuth ,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private fire : AngularFireAuth ,public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController	) {
   }
 
   ionViewDidLoad() {
@@ -37,6 +37,12 @@ export class RegisterPage {
        
     }).catch(error =>{
     	console.log(error);
+    	 let alert = this.alertCtrl.create({
+          title: 'Error',
+          subTitle: error.message,
+          buttons: ['OK']
+        });
+        alert.present();  
     })
   	console.log(this.uname.value, this.password.value)
 
