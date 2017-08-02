@@ -17,4 +17,13 @@
   <button ion-button full (click) = "signUp()">Sign Up</button>
 </div>
 
+<ion-list>
+	<ion-item *ngFor="let post of postService.posts">
+
+	  {{ post.title }}
+	  {{ post.summary }}
+		
+	</ion-item>
+</ion-list>
+
 </ion-content>

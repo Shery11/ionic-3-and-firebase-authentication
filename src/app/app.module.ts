@@ -15,6 +15,7 @@ import { RegisterPage } from '../pages/register/register';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { PostsProvider } from '../providers/posts/posts';
 
 
 const firebaseAuth = {
@@ -53,7 +54,8 @@ const firebaseAuth = {
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PostsProvider
   ]
 })
 export class AppModule {}
